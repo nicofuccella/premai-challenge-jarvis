@@ -1,6 +1,6 @@
 # Jarvis Chatbot with premAI.io
 
-My submission for [Prem Challenge x LangChain](https://github.com/premAI-io/challenge-with-langchain)
+My submission for [Prem Challenge x LangChain](https://github.com/premAI-io/challenge-with-langchain) ([1st place](https://medium.com/prem-blog/announcing-the-winners-of-the-prem-challenge-with-langchain-c666cae6b951))
 
 I used:
 
