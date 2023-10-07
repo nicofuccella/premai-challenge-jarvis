@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { Avatar, Box, Flex, Link, Text } from "@chakra-ui/react"
+import { Avatar, Box, Flex, Text } from "@chakra-ui/react"
 
 const Header: FunctionComponent = () => {
   return (
