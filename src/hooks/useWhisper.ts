@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from "openai"
+import OpenAI from "openai"
 import { useEffect, useState } from "react"
 import useFlow from "./useFlow";
 
@@ -8,12 +8,14 @@ class CustomFormData extends FormData {
   }
 }
 
-const configuration = new Configuration({
-  basePath: import.meta.env.VITE_OPENAPI_WHISPER_BASE_PATH as string,
+const configuration = {
+  baseURL: import.meta.env.VITE_OPENAPI_WHISPER_BASE_PATH as string,
   apiKey: import.meta.env.VITE_OPENAPI_WHISPER_API_KEY as string,
+  dangerouslyAllowBrowser: true,
   formDataCtor: CustomFormData // https://github.com/openai/openai-node/issues/75
-});
-const openai = new OpenAIApi(configuration);
+};
+
+const openai = new OpenAI(configuration);
 
 type UseWhisperReturnType = {
   transcript: string
@@ -29,7 +31,10 @@ const useWhisper = (): UseWhisperReturnType => {
     if (fileToTranscribe) {
       void (async (): Promise<void> => {
         setState("transcribing")
-        const { data: { text } } = await openai.createTranscription(fileToTranscribe, "whisper-1")
+        const { text } = await openai.audio.transcriptions.create({
+          file: fileToTranscribe,
+          model: 'whisper-1',
+        })
         setTranscript(text)
       })()
     }

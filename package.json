@@ -16,7 +16,7 @@
     "axios": "^1.4.0",
     "framer-motion": "^10.12.23",
     "immer": "^10.0.2",
-    "openai": "^3.3.0",
+    "openai": "^4.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
